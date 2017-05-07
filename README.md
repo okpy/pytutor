@@ -1,12 +1,14 @@
 # Pytutor
 
-A library for Phillip Guo's Python Tutor
+A library for Phillip Guo's (@pgbovine) Python Tutor.
 
+Usage Info:
+
+TBD
 
 # License
 
 MIT License
-
 
 # Credits:
 
