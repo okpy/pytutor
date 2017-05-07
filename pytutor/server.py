@@ -42,7 +42,7 @@ class ServerHandler(BaseHTTPRequestHandler):
         # Send response status code
         log.info("Request to {}".format(self.path))
         if (self.path == "/pytutor.js"):
-            return self.send_redirect("https://rawgit.com/Sumukh/dd283bee971ffd728b12aca4c3252023/raw/0de641a198651d982f9703b9bbaa3f90ce5e50eb/pytutor.js")
+            return self.send_redirect("https://rawgit.com/okpy/pytutor/master/pytutor.js")
         if (self.path == "/trace.json"):
             return self.send_message(self.py_trace, code=200, typ='application/json')
         elif (self.path == "/"):
@@ -97,7 +97,7 @@ Source: https://github.com/pgbovine/OnlinePythonTutor/
 <link type="text/css" href="http://pythontutor.com/css/basic.css" rel="stylesheet" />
 
 <!-- Python Tutor frontend code and styles -->
-<script type="text/javascript" src="https://rawgit.com/Sumukh/dd283bee971ffd728b12aca4c3252023/raw/0de641a198651d982f9703b9bbaa3f90ce5e50eb/pytutor.js"></script>
+<script type="text/javascript" src="https://rawgit.com/okpy/pytutor/master/pytutor.js"></script>
 <link rel="stylesheet" href="http://pythontutor.com/css/pytutor.css"/>
 
 
