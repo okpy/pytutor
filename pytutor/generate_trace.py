@@ -5,7 +5,7 @@ import os, os.path
 import sys, json
 from optparse import OptionParser
 
-from client.pythontutor import pg_logger
+from . import pg_logger
 
 # To make regression tests work consistently across platforms,
 # standardize display of floats to 3 significant figures
