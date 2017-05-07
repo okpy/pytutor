@@ -1,0 +1,38 @@
+.github-token
+
+bin
+env
+include
+lib
+man
+tmp
+.Python
+.noseids
+*.pyc
+*.pyo
+*.DS_Store
+*.swp
+*.idea
+*.project
+*.pydevproject
+*.kpf
+.coverage
+
+# pip-related files
+*.egg-info
+dist
+pip-selfcheck.json
+
+# ok-related files
+ok
+*.ok_refresh
+*.ok_messages
+*.ok_history
+misUcount.json
+
+# IPython
+.ipynb_checkpoints/
+
+# IDE
+*.iml
+.idea/
