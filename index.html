@@ -1,0 +1,78 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--
+
+Source: https://github.com/pgbovine/OnlinePythonTutor/
+
+ -->
+
+<head>
+  <title>Python Tutor Tracer</title>
+
+<!-- dependencies for pytutor.js -->
+<script type="text/javascript" src="http://pythontutor.com/js/d3.v2.min.js"></script>
+<script type="text/javascript" src="http://pythontutor.com/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="http://pythontutor.com/js/jquery.simplemodal.js"></script> <!-- for questions -->
+<script type="text/javascript" src="http://pythontutor.com/js/jquery.ba-bbq.min.js"></script> <!-- for handling back button and URL hashes -->
+<script type="text/javascript" src="http://pythontutor.com/js/jquery.jsPlumb-1.3.10-all-min.js "></script> <!-- for rendering SVG connectors DO NOT UPGRADE ABOVE 1.3.10 OR ELSE BREAKAGE WILL OCCUR -->
+<script type="text/javascript" src="http://pythontutor.com/js/jquery-ui-1.11.4/jquery-ui.min.js"></script> <!-- for sliders and other UI elements -->
+<link type="text/css" href="http://pythontutor.com/js/jquery-ui-1.11.4/jquery-ui.css" rel="stylesheet" />
+
+<link type="text/css" href="http://pythontutor.com/css/basic.css" rel="stylesheet" />
+
+<!-- Python Tutor frontend code and styles -->
+<script type="text/javascript" src="https://rawgit.com/Sumukh/dd283bee971ffd728b12aca4c3252023/raw/0de641a198651d982f9703b9bbaa3f90ce5e50eb/pytutor.js"></script>
+<link rel="stylesheet" href="http://pythontutor.com/css/pytutor.css"/>
+
+
+<!-- This JavaScript file contains the demo code - READ IT!!!
+     (Include this file AFTER all of its dependencies.)
+-->
+<script>
+
+
+</script>
+<style>
+#pyCodeOutput {
+  min-width: 100%;
+}
+  </style>
+<script type="text/javascript">
+var myViz;
+$(document).ready(function() {
+
+  // Get the trace
+  $.getJSON( "http://127.0.0.1:8081/trace.json", function( data ) {
+    myViz = new ExecutionVisualizer('myDiv', data,
+                                    {debugMode: false,
+                                    showAllFrameLabels: true,
+                                    lang: 'py3',
+                                    highlightLines: true, arrowLines:false});
+    myViz.redrawConnectors();
+  }, function (err) {
+    alert("There was an error getting the trace. Maybe try again?");
+  });
+
+
+  // Debounced resize timer
+  var resizeTimer;
+  $(window).on('resize', function(e) {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      // Run code here, resizing has "stopped"
+      if (myViz) {
+        myViz.redrawConnectors();
+      }
+    }, 250);
+  });
+});
+</script>
+
+</head>
+
+<body>
+  <div id="myDiv"></div>
+</body>
+</html>
