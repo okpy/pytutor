@@ -6,18 +6,27 @@ A python library for Phillip Guo's Python Tutor
 
 Designed for Python 3 - but should be compatible with Python 2.7 as well. 
 
+# Installation 
+
+`pip install pytutor` 
+
 # Usage 
 
+## Generating Traces 
 ```
 from pytutor import generate_trace 
 
 modules = {'helper': 'foo = 1'}
 setup_code = "y = 4"
 trace = generate_trace.run_logger('x = 1 + y' , setup_code , modules)
-json.loads(trace)
+trace_dict = json.loads(trace)
+
+# from pytutor import server
+# server.run_server(trace)
 ``` 
 
 ```
+>>> trace_dict 
 {
   "code": {
     "main_code": "x = 1 + y",
