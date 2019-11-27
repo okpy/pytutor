@@ -4,7 +4,7 @@ A library for Phillip Guo's (@pgbovine) Python Tutor.
 
 ![image](https://cloud.githubusercontent.com/assets/882381/25778600/a8d7b6c8-32b7-11e7-8c8c-345885433cb3.png)
 
-Designed for Python 3 - but should be compatible with Python 2.7 as well.
+Designed for Python 3
 
 # Installation
 
@@ -14,15 +14,15 @@ Designed for Python 3 - but should be compatible with Python 2.7 as well.
 
 ## Generating Traces
 ```
-from pytutor import generate_trace
+import json
+from pytutor import generate_trace, server
 
 modules = {'helper': 'foo = 1'}
 setup_code = "y = 4"
 trace = generate_trace.run_logger('x = 1 + y' , setup_code , modules)
 trace_dict = json.loads(trace)
 
-# from pytutor import server
-# server.run_server(trace)
+server.run_server(trace) # Serves HTML
 ```
 
 ```
