@@ -20,7 +20,6 @@ tmp
 
 # pip-related files
 *.egg-info
-dist
 pip-selfcheck.json
 
 # ok-related files
