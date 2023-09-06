@@ -40,12 +40,12 @@ def run_logger(source, setup, modules=None):
                                            custom_modules={'pg_setup': setup},
                                            extra_modules=modules)
 
-def run(source, raw_input, setup, modules=None):
+def run(source, raw_input, setup="", modules=None):
     modules = modules or {}
     # Add current directory to path to make sure that imports work consistently
     sys.path.append(os.getcwd() + '/')
 
-    finalizer = lambda code,trace: generate_trace.json_finalizer(code, trace, modules)
+    finalizer = lambda code,trace: json_finalizer(code, trace, modules)
     return pg_logger.exec_script_str_local(source,
                                            raw_input, # JSON list of strings for simulated raw_
                                            True, # output cumulative trace (to display exited frames)
